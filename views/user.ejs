@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel = "stylesheet" type = "text/css" href = "/animate.css">
+<link rel = "stylesheet" type = "text/css" href = "/styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+
+</head>
+
+
+<body>
+    <div id = "usr-view" >		
+     <div class = "background-container-user">
+	<p> <%= profile.user %> </p>
+
+	<h3> Congrats, you have logged in!</h3>
+	 
+	<h4> If you do not have user info feel free to sign up!! </h4>
+	<div class = "row-notbootstrap">
+	<div class = "col-5">
+	<div class = "well well-account">
+	<ul class = "list-group">
+	   <li class = "list-group-item" > bankid: <%= profile._id %> </li>
+	   <li class = "list-group-item"> <%= profile.lName %> </li>
+	   <li class = "list-group-item"> <%= profile.bal %> </li>
+	   <li> <button class = "btn btn-primary"> Change password </button></li>
+	</ul>
+ 	</div>
+	<div class = "well ">
+	<button class = "btn btn-info"  v-on:click = "changeBalance">
+	 Change Balance   
+	</button>
+	<div v-if = "editBalance == true">
+	   <form method = "POST" action = "/user">
+		<input type = "number" name = "balance">
+		<button class = "btn btn-warning" type = "submit"> Update Balance </button>
+	   </form>
+	</div>
+	   
+	</div>
+	</div>
+	<div class = "col-6 account-info">
+	   <div class = "well hellouser">
+		<h1> hello <%=profile.fName %></h1>
+		<ul>
+           	    <li> <h2>FirstName: --  <%= profile.fName %></h2> </li>
+                    <li> <h2>LastName: --<%= profile.lName %></h2> </li>
+                    <li> <h2>Balance: -- <%= profile.bal %></h2> </li>
+        	</ul>
+	
+	   </div>
+	</div>
+	<!--<br><a href = "/">Logout</a>-->
+      </div>
+	<br><button class = " btn-lg btn-danger"><a href = "/">Logout</a></button>
+  </div>
+<script src = "/vue2.js"></script>
+<script src ="/app-user.js"></script>
+</body>
+
+
+</html>
