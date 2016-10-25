@@ -1,0 +1,199 @@
+body{
+
+
+}
+.login2{
+ /*position: relative;
+ top: 50%;
+ 
+ transform: translateY(-50%);*/
+ 
+ margin: 0 auto;
+ display: flex;
+ -webkit-align-items:center;
+ justify-content: center;
+ /*max-width: 50%;*/
+height:100%;
+flex-wrap:wrap;
+flex-direction:row; 
+
+}
+.aboutus{
+color:white;
+text-align: center; 
+ margin: 0 auto;
+ display: flex;
+ -webkit-align-items:center;
+ justify-content: center;
+max-width: 50%;
+flex-wrap:wrap;
+flex-direction:row;
+
+
+}
+.inner{
+
+ align-self:center;
+
+}
+#header{
+
+/*background-color: black;*/
+;
+width: 100%
+
+
+}
+a{
+
+color:white;
+}
+.nav{
+color:white;
+width:100%;
+
+
+}
+.nav{
+ color:white !important;
+
+}
+.navbar{
+
+background-color: transparent;
+color:white;
+
+
+}
+
+#secondpage-container{
+
+
+background-image: url("http://newevolutiondesigns.com/images/freebies/nature-hd-background-22.jpg");
+height: 600px;
+margin-left: auto;
+margin-right:auto%;
+
+
+}
+.background-container{
+
+background-image: url("http://images.psxextreme.com/wallpapers/ps3/leaning_tree_822.jpg");
+height: 600px;
+margin-top: 0px;
+padding-top: 0px;
+width:100%;
+}
+
+.background-container-user{
+
+background-image: url("http://images.psxextreme.com/wallpapers/ps3/leaning_tree_822.jpg");
+height: 100vh;
+margin-top: 0px;
+padding-top: 0px;
+
+}
+
+
+
+
+
+
+.services-container{
+
+color:white;
+background-color: black;
+
+}
+.row-notbootstrap{
+ /*text-align:center;*/
+ color:black;
+ width:100%;
+ display: flex;
+ justify-content:center;
+ 
+}
+.col-1{
+width: 8.32%;
+}
+
+.col-2{
+width: 16.67%;
+}
+
+.col-3{
+width: 25%;
+}
+
+.col-4{
+width: 33%;
+}
+
+.col-5{
+width: 41.67%;
+}
+
+.col-6{
+width: 50%;
+}
+
+.col-7{
+width: 58.3%;
+}
+
+.col-8{
+width: 66.7%
+}
+
+.col-9{
+width: 75%;
+}
+
+.col-10{
+width:83.3%;
+}
+
+.col-11{
+width:91.67%
+}
+
+
+.col-12{
+width:100%;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+.info-container{
+
+background: rgba(0,0,0,.6);
+width: 30%;
+border-style: dotted;
+color:;
+}
+.well{
+
+/*width:20%;*/
+background: rgba(0,0,0,.7) !important;
+}
+
+.hellouser{
+
+height: 400px;
+
+
+}
+.well-account{
+
+height: 300px;
+
+}
+.account-info{
+
+padding-left:20px;
+
+}

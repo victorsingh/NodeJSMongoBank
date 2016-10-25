@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel = "stylesheet" type = "text/css" href = "/animate.css">
+<link rel = "stylesheet" type = "text/css" href = "/styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+</head>
+
+
+<body>
+
+	<div id = "main">
+
+	<div class = "background-container">
+	
+
+  	<div class = "background-container" >
+
+
+
+        <div v-if = "active == 'home'" class = "login2">
+        <span><h1> Victor's Banking website <br> </h1>
+        <h2> Quality banking since 2016 </h2></span>
+        </div>
+
+
+
+
+	
+	<div v-if = "active == 'services'" class = "login2">
+	<p> We only provide the best service using mongo on top of out nodejs server</p>
+	
+	</div>
+
+  
+	<div v-if = "active == 'contact'" class = "login2" >
+	<a> Victor - Contact </p>
+	<a href = "/contact"> send us an email </a>
+	</div>
+
+	<div v-if = "active == 'login'" class = "login2">
+	<div>
+        <h2> Please enter your user info</h2>
+	<br>
+        <form class = "form-group " method = "POST" action = "/">
+                <input class = "form-control " type = "text" name = "user" placeholder = "username" required/><br>
+                <input class = "form-control" type = "text" name = "pass" placeholder = "password" required/><br>
+                <button class = "btn" type = "submit">Login </button>
+                <a href = "/signup">  If you do not have user info feel free to sign up!! </a>
+
+        </form>
+	</div>
+        </div>
+    </div>
+    
+       <div id  = "secondpage-container">
+	<nav id  = "header" class = "navbar "  v-bind:class="active" v-on:click.prevent>
+
+                <!-- When a link in the menu is clicked, we call the makeActive method, 
+        defined in the JavaScript Vue instance. It will change the value of "active". -->
+	    <ul class = "nav nav-pills  nav-justified" style = "color:white">
+		
+                <li> <a style = "color: orange" href="#" class="home" v-on:click="makeActive('home')">Home</a></li>
+                <li> <a style = "color: orange"href="#" class="login" v-on:click="makeActive('login')">Login</a></li>
+                <li> <a style = "color: orange" href="#" class="services" v-on:click="makeActive('services')">Services</a></li>
+                <!--<li> <a style = "color: orange" href="#" class="contact" v-on:click="makeActive('contact')">Contact</a></li>-->
+		
+	    </ul>
+        </nav>
+	
+		<div class = "aboutus">
+			
+			<span><h2> About us </h2>
+			<p> Founded in August 2016 in New York, New York, we have provided a bank that peoples can rely on.  
+			<br> Just kidding, this is only a test to polish my own node, mongo and html/CSS skills (and a little bit of vuejs)
+			
+			
+
+
+			</p></span>
+			
+		</div>
+	</div>
+         </div class = "footer">
+	<div>
+	<a href = "/contact">Contact</a>
+	</div>
+     </div>	
+
+
+<script src ="/vue2.js"></script>
+<script src = "/app-menu.js"></script>
+
+</body>
+
+
+</html>
