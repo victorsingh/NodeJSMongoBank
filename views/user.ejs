@@ -47,16 +47,18 @@
 	   <div class = "well hellouser">
 		<h1> hello <%=profile.fName %></h1>
 		<ul>
-           	    <li> <h2>FirstName: --  <%= profile.fName %></h2> </li>
-                    <li> <h2>LastName: --<%= profile.lName %></h2> </li>
-                    <li> <h2>Balance: -- <%= profile.bal %></h2> </li>
+           	    <li> <h2>FirstName:  <%= profile.fName %></h2> </li>
+                    <li> <h2>LastName: <%= profile.lName %></h2> </li>
+                    <li> <h2>Balance:  <%= profile.bal %></h2> </li>
         	</ul>
 	
 	   </div>
 	</div>
 	<!--<br><a href = "/">Logout</a>-->
       </div>
-	<br><button class = " btn-lg btn-danger"><a href = "/">Logout</a></button>
+	<div id = "logout-container">
+		<br><button class = " btn-lg btn-danger"><a href = "/">Logout</a></button>
+	</div>
   </div>
 <script src = "/vue2.js"></script>
 <script src ="/app-user.js"></script>

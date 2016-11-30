@@ -1,0 +1,19 @@
+body{
+
+background-image: url("http://placekitten.com/g/1920/1080");
+
+}
+
+h1{
+text-align: center;
+color: white;
+height:300px;
+}
+
+
+.form-container{
+
+display:flex;
+justify-content:center;
+
+}

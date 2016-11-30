@@ -2,6 +2,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var nodemailer = require('nodemailer');
+var emailLogin = require('./emailLogin.js');
 //connect to database
 
 
@@ -11,16 +12,15 @@ mongoose.connect('mongodb://localhost:27017/banklogins');
 
 //create a schema - this is like a blueprint
 
-/*var smtpTrans = nodemailer.createTransport({
+var smtpTrans = nodemailer.createTransport({
   	service: 'gmail',
   	auth: { 
-        	user:"", // removed from github code 
-		pass:""
+        	user:emailLogin.email, // removed from github code 
+		pass:emailLogin.password
 
    	}	
 
-});*/
-
+});
 
 
 var loginSchema = new mongoose.Schema({
@@ -50,7 +50,7 @@ app.get('/', function(req, res){
 app.post('/contact',urlencodedParser, function(req, res){
    	console.log(req.body);
   	mailOpts = {
-      		to: '',
+      		to: emailLogin.email,
       		subject: 'Website contact form',
       		text: "A user with the email address: " + req.body.email + " has sent you the following message\n\n" +  req.body.message
   };
@@ -58,6 +58,7 @@ app.post('/contact',urlencodedParser, function(req, res){
     	smtpTrans.sendMail(mailOpts, function (error, response) {
       	//Email not sent
       		if (error) {
+			console.log(emailLogin);
 	  		console.error(error);
           		res.render('404');
 		}
@@ -117,6 +118,13 @@ app.get('/404', function(req,res) {
 
 });
 
+app.get('/usrFalse', function(req,res) {
+
+
+  res.render('usrFalse');
+
+});
+
 var transferdata;
 
 app.post('/', urlencodedParser, function(req,res) {
@@ -125,19 +133,18 @@ app.post('/', urlencodedParser, function(req,res) {
 		if(err){ res.redirect('/404');}
 		console.log("we have registered " + data);
 		if(data === null) {
-			res.redirect('/usrtaken');
+			res.redirect('/');
+			console.log("No such user exits");
 			return;
 		}
 	bcrypt.compare(req.body.pass, data.pass, function(err,res2){
 		if(res2 === false){
-			res.redirect('/404');
+			res.redirect('/usrFalse');
+			console.log("The correct username, but the password is incorrect");
 			return;
 		}
 		if(res2 === true){
 			transferdata = data;// this is what i used to make sure the data passed over into the user get request I took advantage of the global scope here so i would not have to use passport for authentication
-
-			console.log("Data is : " + data);
-			console.log("TransferData is: " + transferdata);
 			res.redirect('/user');
 			return
 		}
@@ -174,12 +181,9 @@ app.post('/user', urlencodedParser, function(req, res){
   	var data = transferdata;// this is used to get the user data from the global scope
   	console.log("user is " + data);
   	login.update(data, {$set: {bal: req.body.balance}}, function(err,data){
-	   transferdata.bal = req.body.balance;
-	   console.log("this happened");
-  	});
-	console.log(transferdata +"---------this souldnt happen before"); 
-    	//transferdata.bal = req.body.balance;// when we send a get request to the use the /user page has to reload with the new balance information 
- 	res.redirect('/user');
+	transferdata.bal = req.body.balance;// when we send a get request to the use the /user page has to reload with the new balance information 
+	res.redirect('/user');
+  	}); 
 
 });
 }
